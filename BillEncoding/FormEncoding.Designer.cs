@@ -51,9 +51,9 @@
             this.resultTextBox.Location = new System.Drawing.Point(22, 112);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.ReadOnly = true;
-            this.resultTextBox.Size = new System.Drawing.Size(117, 229);
+            this.resultTextBox.Size = new System.Drawing.Size(194, 229);
             this.resultTextBox.TabIndex = 3;
-            this.resultTextBox.Text = "000000000000";
+            this.resultTextBox.Text = "";
             // 
             // labelImageCode
             // 
@@ -61,7 +61,7 @@
             this.labelImageCode.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelImageCode.Location = new System.Drawing.Point(18, 89);
             this.labelImageCode.Name = "labelImageCode";
-            this.labelImageCode.Size = new System.Drawing.Size(73, 20);
+            this.labelImageCode.Size = new System.Drawing.Size(74, 21);
             this.labelImageCode.TabIndex = 25;
             this.labelImageCode.Text = "编码序列";
             // 
@@ -71,7 +71,7 @@
             this.labelInput.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelInput.Location = new System.Drawing.Point(18, 46);
             this.labelInput.Name = "labelInput";
-            this.labelInput.Size = new System.Drawing.Size(105, 20);
+            this.labelInput.Size = new System.Drawing.Size(106, 21);
             this.labelInput.TabIndex = 26;
             this.labelInput.Text = "输入冠字号码";
             // 
@@ -83,7 +83,6 @@
             this.inputBox.Name = "inputBox";
             this.inputBox.Size = new System.Drawing.Size(160, 29);
             this.inputBox.TabIndex = 27;
-            this.inputBox.Text = "A0A1234567";
             // 
             // btnSubmit
             // 
@@ -102,7 +101,7 @@
             this.labelImage.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelImage.Location = new System.Drawing.Point(234, 89);
             this.labelImage.Name = "labelImage";
-            this.labelImage.Size = new System.Drawing.Size(73, 20);
+            this.labelImage.Size = new System.Drawing.Size(74, 21);
             this.labelImage.TabIndex = 29;
             this.labelImage.Text = "编码图像";
             // 
@@ -145,21 +144,21 @@
             // DecodingSingleToolStripMenuItem
             // 
             this.DecodingSingleToolStripMenuItem.Name = "DecodingSingleToolStripMenuItem";
-            this.DecodingSingleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DecodingSingleToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.DecodingSingleToolStripMenuItem.Text = "单行模式";
             this.DecodingSingleToolStripMenuItem.Click += new System.EventHandler(this.DecodingSingleToolStripMenuItem_Click);
             // 
             // DecodingMultipleToolStripMenuItem
             // 
             this.DecodingMultipleToolStripMenuItem.Name = "DecodingMultipleToolStripMenuItem";
-            this.DecodingMultipleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DecodingMultipleToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.DecodingMultipleToolStripMenuItem.Text = "多行模式";
             this.DecodingMultipleToolStripMenuItem.Click += new System.EventHandler(this.DecodingMultipleToolStripMenuItem_Click);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(267, 309);
+            this.button1.Location = new System.Drawing.Point(273, 309);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 32);
             this.button1.TabIndex = 5;
@@ -182,7 +181,9 @@
             this.Controls.Add(this.resultTextBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "FormEncoding";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "编码管理工具";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);

@@ -12,3 +12,11 @@ E:\Projects\BillEncoding\BillEncoding\bin\Debug\BillEncoding.exe.config
 D:\Projects\BillEncoding\BillEncoding\bin\Debug\BillEncoding.exe.config
 D:\Projects\BillEncoding\BillEncoding\obj\Debug\BillEncoding.exe
 D:\Projects\BillEncoding\BillEncoding\obj\Debug\BillEncoding.pdb
+D:\Projects\BillEncoding\BillEncoding\bin\Debug\BillEncoding.exe
+D:\Projects\BillEncoding\BillEncoding\bin\Debug\BillEncoding.pdb
+D:\Projects\BillEncoding\BillEncoding\obj\Debug\BillEncoding.csprojResolveAssemblyReference.cache
+D:\Projects\BillEncoding\BillEncoding\obj\Debug\BillEncoding.FormDecodingMultiple.resources
+D:\Projects\BillEncoding\BillEncoding\obj\Debug\BillEncoding.FormDecodingSingleLine.resources
+D:\Projects\BillEncoding\BillEncoding\obj\Debug\BillEncoding.FormEncoding.resources
+D:\Projects\BillEncoding\BillEncoding\obj\Debug\BillEncoding.Properties.Resources.resources
+D:\Projects\BillEncoding\BillEncoding\obj\Debug\BillEncoding.csproj.GenerateResource.Cache

@@ -9,6 +9,7 @@ namespace BillEncoding
     {
         private string stringCode;
         private byte[][] imageCodeArray;
+
         public BillEocoderConverter()
         {
             imageCodeArray = new byte[4][];
@@ -39,34 +40,68 @@ namespace BillEncoding
 
         public string ConvertImageToStringByFisrtBlock(string imagecode)
         {
-            if (!ImageCodeValidation(imagecode, true)) { return "Invalid imagecode"; }
+            if (!ImageCodeValidation(imagecode, true)) { return "Invalid"; }
             return ConvertImageToStringByOneBlock(imagecode);
         }
 
         public List<string> ConvertImageToStringByAllBlock(string imagecode)
         {
-            if (!ImageCodeValidation(imagecode,false)) { return new List<string>{"Invalid imagecode"}; }
-            
-            return null;
+            if (!ImageCodeValidation(imagecode, false)) { return new List<string> { "Invalid" }; }
+            List<string> resultSet = new List<string>();
+            List<string> usefulSet = new List<string>();
+            for (int i = 0; i < 5; i++)
+            {
+                string blockCode = imagecode.Substring(48 * i, 48);
+                string blockResult = ConvertImageToStringByOneBlock(blockCode);
+                resultSet.Add(blockResult);
+                if (!blockResult.Contains('?')) { usefulSet.Add(blockResult); }
+            }
+            int[] vote = new int[usefulSet.Count];
+            for (int i = 0; i < usefulSet.Count; i++)
+            {
+                for (int j = i + 1; j < usefulSet.Count; j++)
+                {
+                    if (usefulSet[j] == usefulSet[i])
+                    {
+                        vote[i]++;
+                        vote[j]++;
+                    }
+                }
+            }
+
+            return resultSet;
         }
 
         private string ConvertImageToStringByOneBlock(string imagecode)
         {
             ImageCodeStringToArray(imagecode);
             char[] resultChar = new char[10] { '?', '?', '?', '?', '?', '?', '?', '?', '?', '?' };
+
+            //Solve Letter Part
             int letterPos1 = imageCodeArray[3][0] * 2 + imageCodeArray[3][1];
             int letterPos2 = imageCodeArray[3][10] * 2 + imageCodeArray[3][11];
-            
-            resultChar[letterPos1] = DecodingLetter(null);
-            resultChar[letterPos2] = DecodingLetter(null);
+            byte[] letter1 = new byte[] { imageCodeArray[0][1], imageCodeArray[1][0], imageCodeArray[2][0], imageCodeArray[1][1], imageCodeArray[2][1] };
+            byte[] letter2 = new byte[] { imageCodeArray[0][10], imageCodeArray[1][10], imageCodeArray[2][10], imageCodeArray[1][11], imageCodeArray[2][11] };
+            resultChar[letterPos1] = DecodingLetter(letter1);
+            resultChar[letterPos2] = DecodingLetter(letter2);
+
+            //Solve Number Part
             int numPos = 0;
-            for (int i = 1; i < 8; i++) 
+            for (int i = 1; i < 9; i++)
             {
-                while (resultChar[numPos]!='?') { numPos++; }
-                
-                resultChar[numPos] = DecodingNumber(null);
+                while (resultChar[numPos] != '?') { numPos++; }
+                int row = i > 4 ? 1 : 0;
+                int coloum = i - 4 * row;
+                byte[] numberI = new byte[] { imageCodeArray[2 * row][2 * coloum], imageCodeArray[2 * row + 1][2 * coloum], imageCodeArray[2 * row][2 * coloum + 1], imageCodeArray[2 * row + 1][2 * coloum + 1] };
+                resultChar[numPos] = DecodingNumber(numberI);
             }
-            return resultChar.ToString();
+
+            string resultString = "";
+            for (int i = 0; i < 10; i++)
+            {
+                resultString += resultChar[i];
+            }
+            return resultString;
         }
 
         private Boolean StringCodeValidation(string stringcode)
@@ -150,14 +185,19 @@ namespace BillEncoding
             imageCodeArray[row * 2 + 1][col * 2 + 3] = Convert.ToByte(singleCode[3]);
         }
 
-        protected char DecodingLetter(byte[] inputSet)
+        private char DecodingLetter(byte[] inputSet)
         {
-            return ' ';
+            int orderCode = inputSet[3] * 2 + inputSet[4];
+            int regionShift = inputSet[1] * 12 + inputSet[2] * 8;
+            int resultLetter = regionShift + orderCode * 2 - 2 + inputSet[0];
+            return Convert.ToChar(resultLetter + 'A');
         }
 
-        protected char DecodingNumber(byte[] inputSet)
+        private char DecodingNumber(byte[] inputSet)
         {
-            return ' '
+            int orderCode = inputSet[2] * 2 + inputSet[3];
+            int resultNumber = orderCode * 2 - 2 + 6 * inputSet[1] + inputSet[0];
+            return Convert.ToChar(resultNumber + '0');
         }
 
         protected string ImageCodeArrayToString()
@@ -171,16 +211,16 @@ namespace BillEncoding
                     singleLineOutput += imageCodeArray[i][j].ToString();
                 }
             }
-            return singleLineOutput;
-            //for (int i = 0; i < 5; i++) { output += singleLineOutput; }
-            //return output;
+            //return singleLineOutput;
+            for (int i = 0; i < 5; i++) { output += singleLineOutput; }
+            return output;
         }
 
         private void ImageCodeStringToArray(string imagecode)
         {
             for (int i = 0; i < imagecode.Length; i++)
             {
-                imageCodeArray[Convert.ToInt32(i / 12)][i % 12] = Convert.ToByte(imagecode[i]-'0');
+                imageCodeArray[Convert.ToInt32(i / 12)][i % 12] = Convert.ToByte(imagecode[i] - '0');
             }
         }
     }

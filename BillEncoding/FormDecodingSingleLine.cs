@@ -31,5 +31,32 @@ namespace BillEncoding
             fdm.ShowDialog();
             this.Close();
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            BillEocoderConverter bec = new BillEocoderConverter();
+            string result = bec.ConvertImageToStringByFisrtBlock(inputTextBox.Text);
+            if (result == "Invalid")
+            {
+                resultTextBox.Text = "----------";
+                statusTextBox.Text = "长度或格式错误";
+                statusTextBox.BackColor = Color.LightCoral;
+            }
+            else 
+            {
+                resultTextBox.Text = result;
+                if (result.Contains('?'))
+                {
+                    resultTextBox.Text = "----------";
+                    statusTextBox.Text = "序列无效";
+                    statusTextBox.BackColor = Color.LightCoral;
+                }
+                else 
+                {
+                    statusTextBox.Text = "序列有效";
+                    statusTextBox.BackColor = Color.LightGreen;
+                }
+            }
+        }
     }
 }

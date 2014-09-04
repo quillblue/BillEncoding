@@ -18,97 +18,58 @@ namespace BillEncoding
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            BillEocoderConverter bec = new BillEocoderConverter();
+            List<string> result = bec.ConvertImageToStringByAllBlock(inputTextBox.Text);
+            if (result[0] == "Invalid")
+            {
+                finalResultBox.Text = "----------";
+                statusFinal.Text = "序列长度或格式不正确";
+                resetStatus(statusBox1);
+                resetStatus(statusBox2);
+                resetStatus(statusBox3);
+                resetStatus(statusBox4);
+                resetStatus(statusBox5);
+                resultBox1.Text = "";
+                resultBox2.Text = "";
+                resultBox3.Text = "";
+                resultBox4.Text = "";
+                resultBox5.Text = "";
+                statusFinal.BackColor = Color.LightCoral;
+                return;
+            }
+            resultBox1.Text = result[0].Contains('?') ? "----------" : result[0];
+            resultBox2.Text = result[1].Contains('?') ? "----------" : result[1];
+            resultBox3.Text = result[2].Contains('?') ? "----------" : result[2];
+            resultBox4.Text = result[3].Contains('?') ? "----------" : result[3];
+            resultBox5.Text = result[4].Contains('?') ? "----------" : result[4];
+            if (result[0].Contains('?')) { setStatusInvalid(statusBox1); }
+            else { setStatusValid(statusBox1); }
+            if (result[1].Contains('?')) { setStatusInvalid(statusBox2); }
+            else { setStatusValid(statusBox2); }
+            if (result[2].Contains('?')) { setStatusInvalid(statusBox3); }
+            else { setStatusValid(statusBox3); }
+            if (result[3].Contains('?')) { setStatusInvalid(statusBox4); }
+            else { setStatusValid(statusBox4); }
+            if (result[4].Contains('?')) { setStatusInvalid(statusBox5); }
+            else { setStatusValid(statusBox5); }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void setStatusValid(TextBox statusbox)
         {
-
+            statusbox.Text = "有效";
+            statusbox.BackColor = Color.LightGreen;
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void setStatusInvalid(TextBox statusbox)
         {
-
+            statusbox.Text = "无效";
+            statusbox.BackColor = Color.LightCoral;
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void resetStatus(TextBox statusbox)
         {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox10_TextChanged(object sender, EventArgs e)
-        {
-
+            statusbox.Text = "";
+            statusbox.BackColor = Color.LightGray;
         }
 
         private void EncodingToolStripMenuItem_Click(object sender, EventArgs e)
