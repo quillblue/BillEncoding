@@ -65,7 +65,7 @@
             this.解析编码ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(515, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(503, 25);
             this.menuStrip1.TabIndex = 38;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -118,7 +118,7 @@
             this.labelInput.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelInput.Location = new System.Drawing.Point(9, 35);
             this.labelInput.Name = "labelInput";
-            this.labelInput.Size = new System.Drawing.Size(106, 21);
+            this.labelInput.Size = new System.Drawing.Size(105, 20);
             this.labelInput.TabIndex = 99;
             this.labelInput.Text = "输入多行序列";
             // 
@@ -128,7 +128,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(236, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 21);
+            this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 44;
             this.label1.Text = "识读结果";
             // 
@@ -155,7 +155,7 @@
             // 
             // inputTextBox
             // 
-            this.inputTextBox.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputTextBox.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextBox.Location = new System.Drawing.Point(13, 58);
             this.inputTextBox.Name = "inputTextBox";
             this.inputTextBox.Size = new System.Drawing.Size(194, 232);
@@ -252,7 +252,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(238, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 21);
+            this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 55;
             this.label2.Text = "第1组";
             // 
@@ -262,7 +262,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(238, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 21);
+            this.label3.Size = new System.Drawing.Size(50, 20);
             this.label3.TabIndex = 56;
             this.label3.Text = "第2组";
             // 
@@ -272,7 +272,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.Location = new System.Drawing.Point(238, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 21);
+            this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 57;
             this.label4.Text = "第3组";
             // 
@@ -282,7 +282,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(238, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 21);
+            this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 58;
             this.label5.Text = "第4组";
             // 
@@ -292,7 +292,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.Location = new System.Drawing.Point(238, 214);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 21);
+            this.label6.Size = new System.Drawing.Size(50, 20);
             this.label6.TabIndex = 59;
             this.label6.Text = "第5组";
             // 
@@ -302,7 +302,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.Location = new System.Drawing.Point(236, 269);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 21);
+            this.label7.Size = new System.Drawing.Size(73, 20);
             this.label7.TabIndex = 60;
             this.label7.Text = "识别结论";
             // 
@@ -333,7 +333,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 371);
+            this.ClientSize = new System.Drawing.Size(503, 371);
             this.Controls.Add(this.statusFinal);
             this.Controls.Add(this.finalResultBox);
             this.Controls.Add(this.label7);

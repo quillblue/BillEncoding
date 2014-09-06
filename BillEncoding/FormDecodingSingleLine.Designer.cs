@@ -92,7 +92,7 @@
             this.解析编码ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(314, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(304, 25);
             this.menuStrip1.TabIndex = 37;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -184,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 241);
+            this.ClientSize = new System.Drawing.Size(304, 241);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.btnSubmit);

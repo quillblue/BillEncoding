@@ -40,7 +40,7 @@
             this.解析编码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DecodingSingleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DecodingMultipleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -156,16 +156,17 @@
             this.DecodingMultipleToolStripMenuItem.Text = "多行模式";
             this.DecodingMultipleToolStripMenuItem.Click += new System.EventHandler(this.DecodingMultipleToolStripMenuItem_Click);
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Enabled = false;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(260, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 32);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "保存图像";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSave.Enabled = false;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.Location = new System.Drawing.Point(260, 328);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(94, 32);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "保存图像";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FormEncoding
             // 
@@ -173,7 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(395, 382);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelImage);
             this.Controls.Add(this.btnSubmit);
@@ -209,7 +210,7 @@
         private System.Windows.Forms.ToolStripMenuItem 解析编码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DecodingSingleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DecodingMultipleToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
