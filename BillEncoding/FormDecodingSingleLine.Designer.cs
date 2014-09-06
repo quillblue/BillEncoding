@@ -52,7 +52,7 @@
             this.labelInput.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelInput.Location = new System.Drawing.Point(12, 37);
             this.labelInput.Name = "labelInput";
-            this.labelInput.Size = new System.Drawing.Size(106, 21);
+            this.labelInput.Size = new System.Drawing.Size(105, 20);
             this.labelInput.TabIndex = 33;
             this.labelInput.Text = "输入单行序列";
             // 
@@ -61,7 +61,7 @@
             this.inputTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTextBox.Location = new System.Drawing.Point(16, 60);
             this.inputTextBox.Name = "inputTextBox";
-            this.inputTextBox.Size = new System.Drawing.Size(115, 126);
+            this.inputTextBox.Size = new System.Drawing.Size(115, 119);
             this.inputTextBox.TabIndex = 34;
             this.inputTextBox.Text = "";
             // 
@@ -71,7 +71,7 @@
             this.labelImage.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelImage.Location = new System.Drawing.Point(143, 145);
             this.labelImage.Name = "labelImage";
-            this.labelImage.Size = new System.Drawing.Size(74, 21);
+            this.labelImage.Size = new System.Drawing.Size(73, 20);
             this.labelImage.TabIndex = 35;
             this.labelImage.Text = "模拟图像";
             // 
@@ -83,7 +83,6 @@
             this.resultTextBox.ReadOnly = true;
             this.resultTextBox.Size = new System.Drawing.Size(140, 35);
             this.resultTextBox.TabIndex = 36;
-            this.resultTextBox.Text = "A0A1234567";
             this.resultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // menuStrip1
@@ -148,13 +147,13 @@
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(105, 252);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 21);
+            this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 39;
             // 
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSubmit.Location = new System.Drawing.Point(16, 210);
+            this.btnSubmit.Location = new System.Drawing.Point(16, 185);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(115, 39);
             this.btnSubmit.TabIndex = 40;
@@ -168,15 +167,16 @@
             this.labelResult.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelResult.Location = new System.Drawing.Point(143, 37);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(74, 21);
+            this.labelResult.Size = new System.Drawing.Size(73, 20);
             this.labelResult.TabIndex = 41;
             this.labelResult.Text = "识别结果";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(147, 169);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 84);
+            this.pictureBox1.Size = new System.Drawing.Size(130, 55);
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
             // 
@@ -184,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 281);
+            this.ClientSize = new System.Drawing.Size(314, 241);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.btnSubmit);

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace BillEncoding
@@ -54,21 +53,51 @@ namespace BillEncoding
                 string blockCode = imagecode.Substring(48 * i, 48);
                 string blockResult = ConvertImageToStringByOneBlock(blockCode);
                 resultSet.Add(blockResult);
-                if (!blockResult.Contains('?')) { usefulSet.Add(blockResult); }
+                if (!blockResult.Contains("?")) { usefulSet.Add(blockResult); }
             }
-            int[] vote = new int[usefulSet.Count];
-            for (int i = 0; i < usefulSet.Count; i++)
+            if (usefulSet.Count != 0)
             {
-                for (int j = i + 1; j < usefulSet.Count; j++)
+                int[] vote = new int[usefulSet.Count];
+                for (int i = 0; i < usefulSet.Count; i++)
                 {
-                    if (usefulSet[j] == usefulSet[i])
+                    for (int j = i + 1; j < usefulSet.Count; j++)
                     {
-                        vote[i]++;
-                        vote[j]++;
+                        if (usefulSet[j] == usefulSet[i])
+                        {
+                            vote[i]++;
+                            vote[j]++;
+                        }
                     }
                 }
+                int maxVote = -1;
+                int maxIndex = -1;
+                bool dudge = false;
+                for (int i = 0; i < usefulSet.Count; i++)
+                {
+                    if (vote[i] == maxVote && usefulSet[i] != usefulSet[maxIndex])
+                    {
+                        dudge = true;
+                    }
+                    if (vote[i] > maxVote)
+                    {
+                        maxVote = vote[i];
+                        maxIndex = i;
+                        dudge = false;
+                    }
+                }
+                if (!dudge)
+                {
+                    resultSet.Add(usefulSet[maxIndex]);
+                }
+                else
+                {
+                    resultSet.Add("dudge");
+                }
             }
-
+            else
+            {
+                resultSet.Add("None is valid");
+            }
             return resultSet;
         }
 
@@ -99,7 +128,7 @@ namespace BillEncoding
             string resultString = "";
             for (int i = 0; i < 10; i++)
             {
-                resultString += resultChar[i];
+                resultString += char.IsLetterOrDigit(resultChar[i]) ? resultChar[i] : '?';
             }
             return resultString;
         }
@@ -143,7 +172,8 @@ namespace BillEncoding
             singleCode[1] = letterNumber > 12 ? 1 : 0;
             singleCode[2] = letterNumber > singleCode[1] * 14 + 5 ? 1 : 0;
             int reverseNum = singleCode[1] == 0 ? letterNumber : 25 - letterNumber;
-            int serialCode = Convert.ToInt32(reverseNum / 2) - singleCode[1] * 4 + 1;
+            int reverseRegionCode1 = singleCode[1] == 0 ? singleCode[2] : 1 - singleCode[2];
+            int serialCode = Convert.ToInt32(reverseNum / 2) - reverseRegionCode1 * 4 + 1;
             singleCode[3] = Convert.ToInt32(serialCode / 2);
             singleCode[4] = serialCode % 2;
             if (singleCode[1] == 1)
@@ -188,7 +218,7 @@ namespace BillEncoding
         private char DecodingLetter(byte[] inputSet)
         {
             int orderCode = inputSet[3] * 2 + inputSet[4];
-            int regionShift = inputSet[1] * 12 + inputSet[2] * 8;
+            int regionShift = inputSet[1] * 14 + inputSet[2] * 8;
             int resultLetter = regionShift + orderCode * 2 - 2 + inputSet[0];
             return Convert.ToChar(resultLetter + 'A');
         }

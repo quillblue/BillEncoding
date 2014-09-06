@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -12,7 +11,7 @@ namespace BillEncoding
     public partial class FormEncoding : Form
     {
         BillEocoderConverter converter = new BillEocoderConverter();
-        
+
         public FormEncoding()
         {
             InitializeComponent();
@@ -22,6 +21,15 @@ namespace BillEncoding
         {
             inputBox.Text=inputBox.Text.ToUpper();
             resultTextBox.Text = converter.ConvertStringToImage(inputBox.Text);
+            ImageDrawer drawer = new ImageDrawer();
+            if (resultTextBox.Text != "Invalid Input")
+            {
+                pictureBox.Image = drawer.DrawImage(resultTextBox.Text, false);
+            }
+            else 
+            {
+                pictureBox.Image = null;
+            }
         }
 
         private void DecodingSingleToolStripMenuItem_Click(object sender, EventArgs e)
