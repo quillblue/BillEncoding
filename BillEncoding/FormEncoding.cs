@@ -64,10 +64,5 @@ namespace BillEncoding
                 pictureBox.Image.Save(saveFileDialog.FileName);
             }
         }
-
-        
-
-
-
     }
 }
